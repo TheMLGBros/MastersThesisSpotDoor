@@ -1,1 +1,1 @@
-THIS IS GONNA BE NICE PROJECT
+The aim of this master's thesis project is to enhance the Boston dynamics Spot robot's capabilities of manuevering by finetuning the door opening manuever to better fit the doors in sweden. Thusly greatly expanding its usecase. 
