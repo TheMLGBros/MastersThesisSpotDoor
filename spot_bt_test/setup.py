@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-		'stand_walk_sit_bt = my_spot_bt.stand_walk_sit_bt:main',
+		'stand_walk_sit_bt = spot_bt_test.stand_walk_sit_bt:main',
         ],
     },
 )

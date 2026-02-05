@@ -34,10 +34,10 @@ class SpotIO:
         self.cmd_pub = self.node.create_publisher(Twist, self.cmd_vel_topic, 10)
 
         # Services used in this demo
-        self.srv_claim = self.node.create_client(Trigger, "/spot/claim")
-        self.srv_power_on = self.node.create_client(Trigger, "/spot/power_on")
-        self.srv_stand = self.node.create_client(Trigger, "/spot/stand")
-        self.srv_sit = self.node.create_client(Trigger, "/spot/sit")
+        self.srv_claim = self.node.create_client(Trigger, "/claim")
+        self.srv_power_on = self.node.create_client(Trigger, "/power_on")
+        self.srv_stand = self.node.create_client(Trigger, "/stand")
+        self.srv_sit = self.node.create_client(Trigger, "/sit")
         self.srv_allow_motion = self.node.create_client(SetBool, "/spot/allow_motion")
 
     def _odom_cb(self, msg: Odometry):
@@ -217,10 +217,10 @@ def main():
     rclpy.init()
     node = Node("my_spot_bt_mission")
 
-    odom_topic = node.declare_parameter("odom_topic", "/spot/odometry").value
+    odom_topic = node.declare_parameter("odom_topic", "/odometry").value
     cmd_vel_topic = node.declare_parameter("cmd_vel_topic", "/cmd_vel").value
     target_distance = float(node.declare_parameter("target_distance", 1.0).value)
-    speed = float(node.declare_parameter("speed", 0.25).value)
+    speed = float(node.declare_parameter("speed", 0.1).value)
 
     io = SpotIO(node=node, odom_topic=odom_topic, cmd_vel_topic=cmd_vel_topic)
     tree = create_tree(io, target_distance, speed)
